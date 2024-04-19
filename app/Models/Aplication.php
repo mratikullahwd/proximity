@@ -25,8 +25,8 @@ class Aplication extends Model
         "why_join_us",
         "suggestions_for_us",
         "development_experience",
-        "handling_challenging_situation",
         "known_programming",
+        "handling_challenging_situation",
         "strategies_of_updates_and_trends"
     ];
 

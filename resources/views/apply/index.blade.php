@@ -1,6 +1,9 @@
 <x-web-layout>
 
     <div class="container mt-5 mb-5">
+        @if (session('status'))
+            <div class="alert alert-{{ session('status') }}">{{ session("message") }}</div>
+        @endif
         <div class="card">
             <div class="card-header">
                 <h4>
@@ -10,7 +13,7 @@
             <div class="card-body">
 
                 <form action="{{ route('store') }}" method="post">
-
+                    @csrf
                     <div class="card mb-3">
                         <div class="card-header">
                             <h4>Personal Information</h4>
@@ -19,12 +22,12 @@
                             <div class="row">
                                 <div class="form-group col-md-6 mb-2">
                                     <label for="name">Name</label>
-                                    <input type="text" id="name" name="name" class="form-control" placeholder="Your Name">
+                                    <input type="text" id="name" name="name" value="{{ old('name') }}" class="form-control" placeholder="Your Name">
                                     @error("name") <label class="text-danger">{{ $message }}</label> @enderror
                                 </div>
                                 <div class="form-group col-md-6 mb-2">
                                     <label for="phone">Phone Number</label>
-                                    <input type="text" id="phone" name="phone" class="form-control" placeholder="Your Phone Number">
+                                    <input type="text" id="phone" name="phone" value="{{ old('phone') }}" class="form-control" placeholder="Your Phone Number">
                                     @error("phone") <label class="text-danger">{{ $message }}</label> @enderror
                                 </div>
                                 <div class="form-group col-md-6 mb-2">
@@ -36,16 +39,6 @@
                                     <label for="email">Email Address</label>
                                     <input type="email" id="email" name="email" class="form-control" placeholder="Your email Number">
                                     @error("email") <label class="text-danger">{{ $message }}</label> @enderror
-                                </div>
-                                <div class="form-group col-md-6 mb-2">
-                                    <label for="Password">Password</label>
-                                    <input type="password" id="Password" name="password" class="form-control" placeholder="Your Password Number">
-                                    @error("password") <label class="text-danger">{{ $message }}</label> @enderror
-                                </div>
-                                <div class="form-group col-md-6 mb-2">
-                                    <label for="confirmPassword">Confirm Password</label>
-                                    <input type="password" id="confirmPassword" name="confirm-password" class="form-control" placeholder="Your Password Number">
-                                    @error("confirm-password") <label class="text-danger">{{ $message }}</label> @enderror
                                 </div>
                             </div>
                         </div>
@@ -80,7 +73,7 @@
                                 </div>
                                 <div class="form-group col-md-6 mb-2">
                                     <label for="experience">Explain about your Experience</label>
-                                    <textarea name="experience" id="experience" cols="30" rows="1" class="form-control"></textarea>
+                                    <textarea name="experience" id="experience" cols="30" rows="1" class="form-control">{{ old('experience') }}</textarea>
                                     @error("experience") <label class="text-danger">{{ $message }}</label> @enderror
                                 </div>
                                 <div class="form-group col-md-6 mb-2">
@@ -109,9 +102,9 @@
                                     @error("development_experience") <label class="text-danger">{{ $message }}</label> @enderror
                                 </div>
                                 <div class="form-group col-md-6 mb-2">
-                                    <label for="handling_challenging_situation">Known Programming Language <i>(For Developers)</i></label>
-                                    <input type="text" id="handling_challenging_situation" name="handling_challenging_situation" class="form-control" placeholder="Write in detail">
-                                    @error("handling_challenging_situation") <label class="text-danger">{{ $message }}</label> @enderror
+                                    <label for="known_programming">Known Programming Language <i>(For Developers)</i></label>
+                                    <input type="text" id="known_programming" name="known_programming" class="form-control" placeholder="Write in detail">
+                                    @error("known_programming") <label class="text-danger">{{ $message }}</label> @enderror
                                 </div>
                                 <div class="form-group col-md-6 mb-2">
                                     <label for="handling_challenging_situation">How do you handle an Challenging Situation?</label>
