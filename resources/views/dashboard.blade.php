@@ -16,7 +16,7 @@
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered">
                         <thead class="table-dark">
-                            <tr>
+                            <tr class="text-center">
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Discord</th>
@@ -25,7 +25,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
+                            @php
+                                $sl = 1;
+                            @endphp
+                            @foreach ($applications as $application)
+                                <tr class="text-center">
+                                    <td>{{ $sl++ }}</td>
+                                    <td>{{ $application->name }}</td>
+                                    <td>{{ $application->discord_tag }}</td>
+                                    <td>{{ $application->applying_for }}</td>
+                                    <td>
+                                        <a href="" class="btn btn-success">Approve</a>
+                                        <a href="" class="btn btn-warning">View</a>
+                                        <a href="" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
