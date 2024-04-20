@@ -20,8 +20,8 @@
     </style>
 
     <!-- Navbar -->
-    <div class="container">
-        <nav class="navbar navbar-expand-lg bg-light navbar-light">
+    <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-light navbar-light">
             <div class="container">
                 <a class="navbar-brand" href="#"><h5>UniProx</h5></a>
                 <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
@@ -39,11 +39,11 @@
                         <li class="nav-item">
                             <a class="nav-link mx-2" href="{{ route('login') }}"><i class="fa-solid fa-right-to-bracket pe-2"></i>Login</a>
                         </li>
-                        @if (Route::has('register'))
+                        {{-- @if (Route::has('register'))
                         <li class="nav-item">
                             <a class="nav-link mx-2" href="{{ route('register') }}"><i class="fa-solid fa-user-plus pe-2"></i>Register</a>
                         </li>
-                        @endif
+                        @endif --}}
                         @endauth
                     </ul>
                 </div>

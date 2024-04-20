@@ -27,7 +27,8 @@ class Aplication extends Model
         "development_experience",
         "known_programming",
         "handling_challenging_situation",
-        "strategies_of_updates_and_trends"
+        "strategies_of_updates_and_trends",
+        "status",
     ];
 
 }

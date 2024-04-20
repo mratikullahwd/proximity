@@ -5,7 +5,13 @@
         </h2>
     </x-slot>
 
+    
     <div class="container">
+        @if (session('status'))
+        <div class="alert alert-{{ session('status') }}">{{ session('message') }}</div>
+        @else
+
+        @endif
         <div class="card m-4">
             <div class="card-header">
                 <h4>
@@ -35,9 +41,13 @@
                                     <td>{{ $application->discord_tag }}</td>
                                     <td>{{ $application->applying_for }}</td>
                                     <td>
-                                        <a href="" class="btn btn-success">Approve</a>
-                                        <a href="" class="btn btn-warning">View</a>
-                                        <a href="" class="btn btn-danger">Delete</a>
+                                        @if ($application->status == 'inactive')
+                                            <a href="{{ route('approve', $application->id) }}" class="btn btn-success">Approve</a>
+                                        @else
+                                            <a href="{{ route('inactive', $application->id) }}" class="btn btn-danger">Make Pending</a>
+                                        @endif
+                                        <a href="{{ route('view', $application->id) }}" class="btn btn-warning">View</a>
+                                        <a href="{{ route('delete', $application->id) }}" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

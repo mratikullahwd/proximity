@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string("handling_challenging_situation");
             $table->string("known_programming")->nullable();
             $table->string("strategies_of_updates_and_trends");
+            $table->string("status")->default('inactive');
             $table->timestamps();
         });
     }
